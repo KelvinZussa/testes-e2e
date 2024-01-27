@@ -38,7 +38,8 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         .should('contain', 'Aero Daily Fitness Tee')
 
         Checkout.fazerCheckout(nomeFaker, sobrenomeFaker, 'Minha empresa', 'Brasil', 'Rua das lagoas', '345', 'Curitiba', 'Paraná', '81250000', '41999999999', emailFaker2)
-                 
+       
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
         cy.get('.woocommerce-customer-details').should('contain','Minha empresa')
         .should('contain','Rua das lagoas')
         .should('contain','345')
